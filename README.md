@@ -13,8 +13,8 @@
 2. 스킨 편집 -> html편집 -> 파일업로드에서 다운로드 받은 파일을 업로드 합니다<br>
 ![image](https://github.com/fpem3309/nav-contents/assets/75240619/7d8832c4-79e0-4b67-b6a5-081596ea5b8a)
 3. HTML 상단에 css파일을 넣어줍니다.<br>
-![image](https://github.com/fpem3309/nav-contents/assets/75240619/7d2cfb27-0262-4635-bd81-9ea8f39af524)
-3. HTML 하단에 js파일을 넣어줍니다.<br>
+![image](https://github.com/fpem3309/nav-contents/assets/75240619/ab4c0b60-3feb-496e-89d1-368b2097f4d7)
+4. HTML 하단에 js파일을 넣어줍니다.<br>
 ![image](https://github.com/fpem3309/nav-contents/assets/75240619/a0796c6b-682f-4313-b695-3e8df1ed485f)
 
 ## 설명
