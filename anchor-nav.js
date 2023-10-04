@@ -16,7 +16,7 @@ function appendAnchor(nav, nextElements) {
 document.addEventListener("DOMContentLoaded", function () {
 
   const entry_content = document.querySelector('.entry-content'); // 글 내용
-  const anchor_item = document.querySelectorAll('.entry-content blockquote[data-ke-style="style2"]');  // 인용을 목차로 사용
+  const anchor_item = document.querySelectorAll('.entry-content h2');  // 목차로 사용
 
   const anchor_nav = document.createElement('ul'); // 목차 네비게이션 만들기
   anchor_nav.setAttribute('class', 'anchor_nav');  // 목차 네비게이션에 class 지정
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const nextElements = [];
     let nextElement = anchor_item[i].nextElementSibling;
     while (nextElement) {
-      if (nextElement.tagName.toLowerCase() === 'h2' && nextElement.textContent.replace(/\s+/g, '').length > 1) {
+      if (nextElement.tagName.toLowerCase() === 'h3' && nextElement.textContent.replace(/\s+/g, '').length > 1) {
         nextElements.push(nextElement);
       } else if (nextElement.tagName.toLowerCase() === 'blockquote') {
         break;
