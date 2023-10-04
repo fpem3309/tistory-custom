@@ -3,8 +3,9 @@
 
 ![nav](https://github.com/fpem3309/nav-contents/assets/75240619/7d32d9df-8a26-4d76-a42c-f4e62c5b06c5)
 
-티스토리 포스팅에서 사용할 수 있는 목차 네비게이션입니다.<br>
-.entry-content 안에 목차가 생성되게 만들었는데 모든 스킨이 있나..?<br>
+티스토리 포스팅에서 사용할 수 있는 목차 네비게이션입니다.<br><br><br>
+![image](https://github.com/fpem3309/nav-contents/assets/75240619/4bf85e59-d615-44bd-96dd-270dabb2b953)
+.entry-content 안에 목차가 생성되게 만들었는데 모든 스킨이 같은 이름으로 되어있나..?<br>
 (디자인이 좀 구립니다ㅠ)
 
 ## 사용법
