@@ -63,7 +63,9 @@ html {
   content: "🌔";
   padding-right: 10px;
 }
-
+.anchor_nav .title_one_nav li:hover::before {
+  content: "🚀";
+}
 .anchor_nav .title_two_nav {
   padding: 5px 0 0 15px !important;
 }
@@ -83,4 +85,11 @@ html {
   margin-right: 10px;
   transition: all 2s;
   z-index: 20;
+}
+
+.active_anchor::before {
+  content: "🚀" !important;
+}
+.active_anchor a {
+  color: springgreen !important;
 }
