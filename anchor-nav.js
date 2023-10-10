@@ -21,15 +21,15 @@ document.addEventListener("DOMContentLoaded", function () {
   const anchor_nav = document.createElement('ul'); // 목차 네비게이션 만들기
   anchor_nav.setAttribute('class', 'anchor_nav');  // 목차 네비게이션에 class 지정
   
-  if(anchor_item.length > 0){
-    entry_content.appendChild(anchor_nav);   // 목차 네비게이션 html에 띄우기
-  }
-  
   const toggle_btn = document.createElement('button'); // 목차 네비게이션 버튼
   toggle_btn.setAttribute('class', 'anchor_toggle_btn');  // 목차 네비게이션에 토글 버튼
   toggle_btn.innerText = '👀 👉';
-  entry_content.appendChild(toggle_btn);
-
+  
+  if(anchor_item.length > 0){
+    entry_content.appendChild(anchor_nav);   // 목차 네비게이션 html에 띄우기
+    entry_content.appendChild(toggle_btn);  // 버튼 html에 띄우기
+  }
+  
   for (let i = 0; i < anchor_item.length; i++) {  // 목차 갯수만큼
 
     const id = anchor_item[i].textContent;
@@ -72,5 +72,13 @@ document.addEventListener("DOMContentLoaded", function () {
       anchor_nav.style.right = '0px';
       toggle_btn.style.transform = 'rotateY(0deg)';
     }
-  })
+  });
+  
+  window.addEventListener('hashchange', function () {
+    let hash = decodeURIComponent(location.hash);
+    document.querySelectorAll('.active_anchor').forEach(element => {
+      element.classList.remove('active_anchor');
+    });
+    document.querySelector(`[href="${hash}"]`).parentElement.setAttribute('class', 'active_anchor');
+  });
 });
