@@ -20,9 +20,12 @@
 ## 설명
 1. 기본모드에서 글 작성시 자동으로 생성되게 만들었습니다. (미리보기로 목차가 어떻게 생성되는지 볼 수 있습니다.)
 2. ```
-   const anchor_item = document.querySelectorAll('.entry-content h2"]');  // 최상위 항목 (19번 라인)
-   if (nextElement.tagName.toLowerCase() === 'h3' && nextElement.textContent.replace(/\s+/g, '').length > 1) {  // 두번째 상위 항목 (47번 라인)
+   const first = '.entry-content blockquote[data-ke-style="style2"]';  // 최상위
+   const second = 'h2';  // 두번째
+   const third = 'h3'; // 세번째
+   const fourth = '';  // 네번째
+   const fifth = ''; // 다섯번째
    ```
-   제목1(h2)을 최상위, 제목2(h3)을 그 다음 상위로 되어있는데 바꾸면서 다른 태그들로 수정할 수 있습니다.
-3. 현재 부제목까지만 자주 사용해서 부제목까지 상위 2개만 설정할 수 있습니다.
-4. 설정한 최상위 제목이 블로그 글에 없으면 부제목이 있어도 목차가 노출되지 않습니다.(추후 수정) 부제목은 안 넣어도 제목이 있으면 목차가 노출됩니다.
+   제목1(h2)을 최상위, 제목2(h3)을 그 다음 상위...등등 다른 태그들로 설정할 수 있습니다.
+   여기서는 style2 인용을 최상위 태그로 설정했습니다
+4. 설정한 최상위 제목이 없으면 하위 제목이 있어도 목차가 노출되지 않습니다.
