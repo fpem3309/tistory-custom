@@ -3,7 +3,7 @@ html {
 }
 
 .anchor_nav {
-  width: 12%;
+  width: 180px;
   line-height: 2.0;
   margin: 0;
   padding: 10px 20px 15px !important;
@@ -13,16 +13,15 @@ html {
   right: 0;
   margin-right: 10px;
   border: 3px solid transparent;
-  border-image: linear-gradient(60deg, #a3f96d, #6df9c8, #7eeeff);
   border-image-slice: 1;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(10px);
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  transition: right 2s;
+  transition: right 1s;
   z-index: 20;
 }
 
 .anchor_nav::before {
-  content: "🛸 목차";
   display: block;
   text-align: center;
   margin-bottom: 10px;
@@ -34,20 +33,15 @@ html {
   text-overflow: ellipsis;
   white-space: nowrap;
   font-size: 0.7em;
+  margin-bottom: 5px !important;
 }
 
 .anchor_nav li::before {
-  content: "🌕";
   padding-right: 10px;
 }
 
-.anchor_nav li:hover::before {
-  /* content: "\1F680"; */
-  content: "🚀";
-}
-
 .anchor_nav li:hover>* {
-  color: springgreen;
+  color: rgba(0, 255, 127, 0.4);
 }
 
 .anchor_nav li a {
@@ -56,21 +50,46 @@ html {
   font-weight: bold;
 }
 
-.anchor_nav .title_one_nav {
+.anchor_nav .anchor_h2 {
   padding: 5px 0 0 15px !important;
+  font-size: 14px;
+  margin-bottom: 10px;
 }
-.anchor_nav .title_one_nav li::before {
-  content: "🌔";
+.anchor_nav .anchor_h2 li::before {
   padding-right: 10px;
 }
-.anchor_nav .title_one_nav li:hover::before {
-  content: "🚀";
+
+.anchor_nav .anchor_h3 {
+  padding-left: 30px !important;
+  font-size: 14px;
+  margin-bottom: 10px;
 }
+.anchor_nav .anchor_h3 li::before {
+  padding-right: 10px;
+}
+
+.anchor_nav .anchor_h4 {
+  padding-left: 30px !important;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.anchor_nav .anchor_h4 li::before {
+  padding-right: 10px;
+}
+
+.anchor_nav .anchor_h5 {
+  padding-left: 30px !important;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.anchor_nav .anchor_h5 li::before {
+  padding-right: 10px;
+}
+
 .anchor_nav .title_two_nav {
   padding: 5px 0 0 15px !important;
 }
 .anchor_nav .title_two_nav li::before {
-  content: "🌓";
   padding-right: 10px;
 }
 
@@ -86,9 +105,11 @@ html {
   transition: all 2s;
   z-index: 20;
 }
-
-.active_anchor::before {
-  content: "🚀" !important;
+.anchor_toggle_btn::after{
+  content: "👀";
+}
+.btn_hide {
+  right: -240px;
 }
 .active_anchor a {
   color: springgreen !important;
