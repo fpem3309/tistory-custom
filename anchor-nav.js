@@ -1,7 +1,25 @@
-function appendAnchor(nav, nextElements) {
-  for (let i = 0; i < nextElements.length; i++) {
-    const id = nextElements[i].textContent;
-    nextElements[i].setAttribute('id', `${id}`);
+function appendItems(tag, turn, parent) {
+  const items = [];
+  while (tag) {
+    if (tag.tagName.toLowerCase() === turn && tag.textContent.replace(/\s+/g, '').length > 1) {
+      items.push(tag);
+    } else if (tag.tagName === parent) {
+      break;
+    }
+    tag = tag.nextElementSibling;
+  }
+  if (items.length > 0) {
+    const anchor_child = document.createElement('ul'); // 목차 네비게이션 만들기
+    anchor_child.setAttribute('class', `anchor_${turn}`); // 목차 네비게이션에 class 지정
+    appendAnchor(anchor_child, items);
+    anchor_nav.appendChild(anchor_child);
+  }
+}
+
+function appendAnchor(nav, items) {
+  for (let i = 0; i < items.length; i++) {
+    const id = items[i].textContent;
+    items[i].setAttribute('id', `${id}`);
 
     const li = document.createElement("li");
     const a = document.createElement("a");
@@ -13,27 +31,32 @@ function appendAnchor(nav, nextElements) {
   }
 }
 
+const main = document.querySelector('.entry-content'); // 글 내용
+const anchor_nav = document.createElement('ul'); // 목차 네비게이션 만들기
+anchor_nav.setAttribute('class', 'anchor_nav');  // 목차 네비게이션에 class 지정
+
+const toggle_btn = document.createElement('button'); // 목차 네비게이션 버튼
+toggle_btn.setAttribute('class', 'anchor_toggle_btn');  // 목차 네비게이션에 토글 버튼
+
+const first = '.entry-content blockquote[data-ke-style="style2"]';  // 최상위
+const second = 'h2';  // 두번째
+const third = 'h3'; // 세번째
+const fourth = '';  // 네번째
+const fifth = ''; // 다섯번째
+
 document.addEventListener("DOMContentLoaded", function () {
-
-  const entry_content = document.querySelector('.entry-content'); // 글 내용
-  const anchor_item = document.querySelectorAll('.entry-content h2');  // 목차로 사용
-
-  const anchor_nav = document.createElement('ul'); // 목차 네비게이션 만들기
-  anchor_nav.setAttribute('class', 'anchor_nav');  // 목차 네비게이션에 class 지정
   
-  const toggle_btn = document.createElement('button'); // 목차 네비게이션 버튼
-  toggle_btn.setAttribute('class', 'anchor_toggle_btn');  // 목차 네비게이션에 토글 버튼
-  toggle_btn.innerText = '👀 👉';
-  
-  if(anchor_item.length > 0){
-    entry_content.appendChild(anchor_nav);   // 목차 네비게이션 html에 띄우기
-    entry_content.appendChild(toggle_btn);  // 버튼 html에 띄우기
+  const anchor_1 = document.querySelectorAll(first);  // 최상위 목차로 사용
+
+  if (anchor_1.length > 0) {
+    main.appendChild(anchor_nav);   // 목차 네비게이션 html에 띄우기
+    main.appendChild(toggle_btn);  // 버튼 html에 띄우기
   }
-  
-  for (let i = 0; i < anchor_item.length; i++) {  // 목차 갯수만큼
 
-    const id = anchor_item[i].textContent;
-    anchor_item[i].setAttribute('id', `${id}`)  // 목차들 id값 설정
+  for (let i = 0; i < anchor_1.length; i++) {  // 목차 갯수만큼
+
+    const id = anchor_1[i].textContent;
+    anchor_1[i].setAttribute('id', `${id}`)  // 목차들 id값 설정
 
     const li = document.createElement("li");
     const a = document.createElement("a");
@@ -44,36 +67,17 @@ document.addEventListener("DOMContentLoaded", function () {
     li.appendChild(a);
     anchor_nav.appendChild(li); // 목차 네비게이션에 추가
 
-    const nextElements = [];
-    let nextElement = anchor_item[i].nextElementSibling;
-    while (nextElement) {
-      if (nextElement.tagName.toLowerCase() === 'h3' && nextElement.textContent.replace(/\s+/g, '').length > 1) {
-        nextElements.push(nextElement);
-      } else if (nextElement.tagName.toLowerCase() === 'blockquote') {
-        break;
-      }
-      nextElement = nextElement.nextElementSibling;
-    }
-    if (nextElements.length > 0) {
-      const title_one_nav = document.createElement('ul'); // 목차 네비게이션 만들기
-      title_one_nav.setAttribute('class', 'title_one_nav'); // 목차 네비게이션에 class 지정
-      appendAnchor(title_one_nav, nextElements);
-      anchor_nav.appendChild(title_one_nav);
-    }
+    if (second != '') appendItems(anchor_1[i].nextElementSibling, second, anchor_1[i].tagName)
+    if (third != '') appendItems(anchor_1[i].nextElementSibling, third)
+    if (fourth != '') appendItems(anchor_1[i].nextElementSibling, fourth)
+    if (fifth != '') appendItems(anchor_1[i].nextElementSibling, fifth)
+
   }
 
   toggle_btn.addEventListener('click', function () {
-    const nav_width = anchor_nav.offsetWidth;
-    console.log(nav_width)
-    if (!anchor_nav.style.right || anchor_nav.style.right === '0px') {
-      anchor_nav.style.right = `-${nav_width+50}px`;
-      toggle_btn.style.transform = 'rotateY(-180deg)';
-    } else {
-      anchor_nav.style.right = '0px';
-      toggle_btn.style.transform = 'rotateY(0deg)';
-    }
-  });
-  
+    anchor_nav.classList.toggle('btn_hide');
+  })
+
   window.addEventListener('hashchange', function () {
     let hash = decodeURIComponent(location.hash);
     document.querySelectorAll('.active_anchor').forEach(element => {
