@@ -13,6 +13,7 @@ function appendItems(tag, turn, parent) {
     anchor_child.setAttribute('class', `anchor_${turn}`); // 목차 네비게이션에 class 지정
     appendAnchor(anchor_child, items);
     anchor_nav.appendChild(anchor_child);
+    return anchor_child;
   }
 }
 
@@ -20,6 +21,7 @@ function appendAnchor(nav, items) {
   for (let i = 0; i < items.length; i++) {
     const id = items[i].textContent;
     items[i].setAttribute('id', `${id}`);
+    items[i].setAttribute('class', 'anchors');  // 목차들 class값 설정
 
     const li = document.createElement("li");
     const a = document.createElement("a");
@@ -38,16 +40,15 @@ anchor_nav.setAttribute('class', 'anchor_nav');  // 목차 네비게이션에 cl
 const toggle_btn = document.createElement('button'); // 목차 네비게이션 버튼
 toggle_btn.setAttribute('class', 'anchor_toggle_btn');  // 목차 네비게이션에 토글 버튼
 
-const first = '.entry-content blockquote[data-ke-style="style2"]';  // 최상위
+const first = '.entry-content blockquote[data-ke-style="style2"]';  // for
 const second = 'h2';  // 두번째
 const third = 'h3'; // 세번째
 const fourth = '';  // 네번째
 const fifth = ''; // 다섯번째
 
 document.addEventListener("DOMContentLoaded", function () {
-  
-  const anchor_1 = document.querySelectorAll(first);  // 최상위 목차로 사용
 
+  const anchor_1 = document.querySelectorAll(first);  // 최상위 목차로 사용
   if (anchor_1.length > 0) {
     main.appendChild(anchor_nav);   // 목차 네비게이션 html에 띄우기
     main.appendChild(toggle_btn);  // 버튼 html에 띄우기
@@ -57,6 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const id = anchor_1[i].textContent;
     anchor_1[i].setAttribute('id', `${id}`)  // 목차들 id값 설정
+    anchor_1[i].setAttribute('class', 'anchors');  // 목차들 class값 설정
 
     const li = document.createElement("li");
     const a = document.createElement("a");
@@ -68,9 +70,9 @@ document.addEventListener("DOMContentLoaded", function () {
     anchor_nav.appendChild(li); // 목차 네비게이션에 추가
 
     if (second != '') appendItems(anchor_1[i].nextElementSibling, second, anchor_1[i].tagName)
-    if (third != '') appendItems(anchor_1[i].nextElementSibling, third)
-    if (fourth != '') appendItems(anchor_1[i].nextElementSibling, fourth)
-    if (fifth != '') appendItems(anchor_1[i].nextElementSibling, fifth)
+    // if (third != '') appendItems(anchor_2.nextElementSibling, third, anchor_2.tagName)
+    // if (fourth != '') appendItems(anchor_1[i].nextElementSibling, fourth)
+    // if (fifth != '') appendItems(anchor_1[i].nextElementSibling, fifth)
 
   }
 
@@ -84,5 +86,30 @@ document.addEventListener("DOMContentLoaded", function () {
       element.classList.remove('active_anchor');
     });
     document.querySelector(`[href="${hash}"]`).parentElement.setAttribute('class', 'active_anchor');
+  });
+
+
+  // 스크롤 이벤트 리스너
+  window.addEventListener('scroll', function () {
+    const sections = document.querySelectorAll('.anchors');
+    const menuItems = document.querySelectorAll('.anchor_nav li');
+
+    sections.forEach(function (section, index) {
+      // 섹션의 위치
+      const sectionTop = section.offsetTop - 100; // 상단 마진이 있을 경우 조정
+
+      // 현재 스크롤 위치
+      let scrollPosition = window.scrollY;
+
+      // 현재 스크롤 위치가 섹션 위치 범위 내에 있는지 확인
+      if (scrollPosition >= sectionTop && scrollPosition < sectionTop + section.offsetHeight) {
+        // 해당 섹션에 해당하는 메뉴 아이템을 강조
+        menuItems.forEach(function (item) {
+          item.classList.remove('active_anchor');
+        });
+        // console.log(index, menuItems[index])
+        menuItems[index].classList.add('active_anchor');
+      }
+    });
   });
 });
