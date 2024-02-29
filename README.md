@@ -1,12 +1,16 @@
 # nav-contents
 티스토리 목차 네비게이션<br>
 
-![nav](https://github.com/fpem3309/nav-contents/assets/75240619/7d32d9df-8a26-4d76-a42c-f4e62c5b06c5)
+![-Chrome2024-02-2910-42-41-ezgif com-video-to-gif-converter](https://github.com/fpem3309/nav-contents/assets/75240619/70395f44-254c-4a4d-808b-36891eec2eeb)
 
 티스토리 포스팅에서 사용할 수 있는 목차 네비게이션입니다.<br><br><br>
+
 ![image](https://github.com/fpem3309/nav-contents/assets/75240619/4bf85e59-d615-44bd-96dd-270dabb2b953)
-.entry-content 안에 목차가 생성되게 만들었는데 모든 스킨이 같은 이름으로 되어있나..?<br>
-(디자인이 좀 구립니다ㅠ)
+```
+const main = document.querySelector('.entry-content'); // 글 내용
+```
+.entry-content 안에 목차가 생성되게 만들었습니다<br><br><br>
+
 
 ## 사용법
 1. 저장소에서 anchor-nav.js와 anchor-nav.css를 다운로드 합니다.
@@ -28,4 +32,5 @@
    ```
    제목1(h2)을 최상위, 제목2(h3)을 그 다음 상위...등등 다른 태그들로 설정할 수 있습니다.
    여기서는 style2 인용을 최상위 태그로 설정했습니다
+   현재 두번째 상위까지만 오류없이 실행됩니다.
 4. 설정한 최상위 제목이 없으면 하위 제목이 있어도 목차가 노출되지 않습니다.
