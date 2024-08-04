@@ -1,0 +1,17 @@
+/*------------------------------
+  File : home.css
+  Create date : 2024-08-04
+  Version : 1.0.0
+  ※ Home 화면
+------------------------------*/
+
+/* 상단 블로그명 */
+#laptop_title{
+  font-family: 'Pretendard-Regular',sans-serif;
+}
+
+/* 인기글 / 최신글 제목 */
+.cover-thumbnail-3 h2{
+  font-size: 1.5em !important;
+  font-weight: bold !important;
+}

@@ -1,0 +1,55 @@
+/*------------------------------
+  File : codeblock-title.css
+  Create date : 2024-08-04
+  Version : 1.0.0
+  ※ Post 내 codeblock의 파일명, 확장자명
+------------------------------*/
+
+
+/*  인용2 */
+blockquote[data-ke-style="style2"] {
+  padding: 20px 0 20px 12px !important;
+  border-color: #009b00 !important;
+  background-color: #f2f5f5;
+  margin-bottom: 30px !important;
+  font-weight: bold;
+}
+
+/*  파일명 */
+.file_name {
+  background-color: #393b46;
+  margin-bottom: 0 !important;
+  color: #ebfff1 !important;
+  width: 100%;
+  font-family: emoji;
+  font-weight: 100 !important;
+  float: left;
+  padding-left: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  box-sizing: border-box;
+  border-top: 3px solid #7cff7c;
+}
+
+/*  확장자명 */
+.ext {
+  background-color: #393b46;
+  margin-bottom: 0 !important;
+  color: #ebfff1 !important;
+  right: 0;
+  font-family: emoji;
+  font-weight: 100 !important;
+  float: right;
+  padding-right: 10px;
+  color: #00FF00 !important;
+}
+
+.file_name+pre {
+  margin-top: 0;
+  clear: both;
+  margin-bottom: 7px;
+}
+
+.file_name+pre code {
+  border: 0 !important;
+}

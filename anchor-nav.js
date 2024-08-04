@@ -1,3 +1,9 @@
+/*------------------------------
+  File : anchor-nav.js
+  Create date : 2023-10-04
+  Version : 1.0.0
+  ※ 목차 네비게이션
+------------------------------*/
 function appendItems(tag, turn, parent) {
   const items = [];
   while (tag) {

@@ -1,17 +1,23 @@
+/*------------------------------
+  File : anchor-nav.css
+  Create date : 2023-10-04
+  Version : 1.0.0
+  ※ 목차 네비게이션
+------------------------------*/
 html {
   scroll-behavior: smooth;
 }
 
+/* 네비게이션 */
 .anchor_nav {
   width: 180px;
   line-height: 2.0;
-  margin: 0;
   padding: 10px 20px 15px !important;
   position: fixed;
   top: 0;
-  margin-top: 10vh;
+  margin-top: 10vh !important;
   right: 0;
-  margin-right: 10px;
+  margin-right: 10px !important;
   border: 3px solid transparent;
   border-image-slice: 1;
   background-color: rgba(255, 255, 255, 0);
@@ -45,8 +51,8 @@ html {
 }
 
 .anchor_nav li a {
-  text-decoration-line: none;
-  color: rgb(46, 46, 46);
+  text-decoration-line: none !important;
+  color: rgba(0, 0, 0, 0.6);
   font-weight: bold;
 }
 
@@ -93,6 +99,7 @@ html {
   padding-right: 10px;
 }
 
+/* 네비게이션 토글 버튼 */
 .anchor_toggle_btn {
   background: none;
   border: none;
