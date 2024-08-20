@@ -1,7 +1,7 @@
-# nav-contents
+# anchor-nav
 티스토리 목차 네비게이션<br>
 
-![-Chrome2024-02-2910-42-41-ezgif com-video-to-gif-converter](https://github.com/fpem3309/nav-contents/assets/75240619/70395f44-254c-4a4d-808b-36891eec2eeb)
+![anchor-nav](https://github.com/user-attachments/assets/029b122e-bcdf-4b58-a545-bd099c20be17)
 
 티스토리 포스팅에서 사용할 수 있는 목차 네비게이션입니다.<br><br><br>
 
